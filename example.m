@@ -33,8 +33,10 @@ print('-djpeg','-r300',figname)
 %SCATTER PLOT
 %Choose a depth
 dep = 5;% 10;
+[~,dep2] = min(abs(P(dep)-Pout));
+
 s1 = squeeze(S(dep,:,:));
-s2 = squeeze(S2(dep,:,:));
+s2 = squeeze(S2(dep2,:,:));
 s1(isnan(s2))=nan;
 
 figure(2),clf
@@ -45,16 +47,16 @@ figname = 'TS_orig_reconstruct_scatter_SA.jpg';
 print('-djpeg','-r300',figname)
 
 %MAP PLOT
-dep = 5;%5;% 100;
+%dep = 5;%5;% 100;
 s1 = squeeze(S(dep,:,:));
-s2 = squeeze(S2(dep,:,:));
+s2 = squeeze(S2(dep2,:,:));
 t1 = squeeze(T(dep,:,:));
 cc = load('coast.mat');
 
 figure(3),clf
 subplot(2,1,2)
 h2=color_line(longitude,latitude,s2,'.');
-title(sprintf('Prediction: Depth = %g m',P(dep))),h1=colorbar;
+title(sprintf('Prediction: Depth = %g m',Pout(dep2))),h1=colorbar;
 c_ax = caxis;
 axis image;axis normal
 ax1 = axis;
