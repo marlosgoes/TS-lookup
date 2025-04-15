@@ -1,18 +1,19 @@
 # TS-lookup
 This is the code from Goes et al. (2018) to infer salinity for temperature profiles
-Now it works for the whole globe between 70S-65N
-
-INSTALLATION:  (Download all .mat files including WOA13 for padding)
-run: csh install.sh
-
-TEST:
-run in matlab: example.m 
+Now it works for the whole globe between 70S-65N, and includes a python version
 
 REFERENCE: 
 Goes, M., J. Christophersen, S. Dong, G. Goni, and M.O. Baringer, 2018: An Updated Estimate of Salinity for the Atlantic Ocean Sector Using Temperature–Salinity Relationships. J. Atmos. Oceanic Technol., 35, 1771–1784, https://doi.org/10.1175/JTECH-D-18-0029.1
 
-These are the contents of this package:
+## INSTALLATION:  (Download all .mat files including WOA13 for padding)
+run: csh install.sh
 
+## TEST:
+run in matlab: example.m 
+run in python: example.py
+
+## Contents of this package:
+Calc_sal_Thacker_Goes_EmDr_Stom_svd_globe.py
 Calc_sal_Thacker_Goes_EmDr_Stom_svd_globe.m: Calculate the salinity from the T profiles.
 inputs: TT - temperature
         PP - pressure
