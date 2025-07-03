@@ -6,8 +6,8 @@
 
 tar -xvzf TS_PACKAGE_ftp_Feb25.tar.gz
 
-ftp https://www.aoml.noaa.gov/ftp/pub/phod/mgoes/TS_package/MATFILES/matfile.tar.gz
-ftp https://www.aoml.noaa.gov/ftp/pub/phod/mgoes/TS_package/MATFILES/WOA18.tar.gz
+ftp https://www.aoml.noaa.gov/ftp/pub/phod/mgoes/TS/MATFILES/matfile.tar.gz
+ftp https://www.aoml.noaa.gov/ftp/pub/phod/mgoes/TS/MATFILES/WOA18.tar.gz
 
 cd TS_PACKAGE_THACKER_noyear_globe_ftp/
 
