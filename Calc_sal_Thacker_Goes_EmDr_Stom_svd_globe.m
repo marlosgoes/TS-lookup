@@ -60,6 +60,7 @@
 % DEC  2023 - Changed FC to _ryanonly  make*_ryanonly.m  %_FC files updated - no cora/argo
 % Mar  2024 - Included aux(acha2) in l. 403. Was aux;
 % Feb  2025 - Added MEDITERRANEAN
+% Jul  2025 - Corrected call for Pacific (l.278 ) and added Zcorr for interpolation to maximum depth (l.155-156)
 function [y2,y3,TT,PP]=Calc_sal_Thacker_Goes_EmDr_Stom_svd_globe(varargin) %TT,PP,lat,lon,timet,pad,Pout,method)
 InpVars = cell(1,8);
 InpVars(1:nargin) = varargin;
@@ -151,7 +152,9 @@ for ii=1:nla1
         acha = ~isnan(t+p);
               if ~any(acha);continue;end
         if nnz(acha)>1
-T(:,ii,jj) = interp1(p(acha),t(acha),Z);
+            Zcorr = Z;
+            Zcorr(find(Z>max(p),1)) = max(p); Correct for maximum depth %Jul 2025
+            T(:,ii,jj) = interp1(p(acha),t(acha),Zcorr);
         elseif nnz(acha)==1 || max(p(acha))<Z(1)
             [~,imin]=min(abs(Z-p(acha)));                    %DEC 2023
             aux = Z*nan;aux(imin)=t(acha);
@@ -272,7 +275,7 @@ P = PP(:,ai);
 
 %longitude = lon(ai);
 %DIFFER FOR PACIFIC
-if (bb < 8)
+if (bb < 8 || b > 12)
    longitude = lon(ai);
 else
    disp('Pacific')
