@@ -153,7 +153,7 @@ for ii=1:nla1
               if ~any(acha);continue;end
         if nnz(acha)>1
             Zcorr = Z;
-            Zcorr(find(Z>max(p),1)) = max(p); Correct for maximum depth %Jul 2025
+            Zcorr(find(Z>max(p),1)) = max(p); %Correct for maximum depth %Jul 2025
             T(:,ii,jj) = interp1(p(acha),t(acha),Zcorr);
         elseif nnz(acha)==1 || max(p(acha))<Z(1)
             [~,imin]=min(abs(Z-p(acha)));                    %DEC 2023
