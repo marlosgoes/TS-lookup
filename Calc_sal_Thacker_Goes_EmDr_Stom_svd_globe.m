@@ -275,7 +275,7 @@ P = PP(:,ai);
 
 %longitude = lon(ai);
 %DIFFER FOR PACIFIC
-if (bb < 8 || b > 12)
+if (bb < 8 || bb > 12)
    longitude = lon(ai);
 else
    disp('Pacific')
